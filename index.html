@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OnChainPortfolio - Blockchain Achievements</title>
+  <meta name="description" content="Showcase and share your blockchain achievements stored on-chain." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>OnChainPortfolio</h1>
+    <button id="connectWalletBtn" aria-label="Connect Wallet">Connect Wallet</button>
+    <span id="statusDot" aria-live="polite" aria-atomic="true"></span>
+  </header>
+
+  <main>
+    <section class="achievements-section">
+      <div class="filter-buttons" role="group" aria-label="Filter achievements">
+        <button class="filter-btn active" data-filter="all">All Achievements</button>
+      </div>
+      <div id="achievementsList" aria-live="polite" aria-atomic="true" class="achievements-list">
+        <!-- Achievement cards inserted here -->
+      </div>
+      <button id="addAchievementBtn" aria-haspopup="dialog" aria-controls="modalAddAchievement">Add Achievement</button>
+    </section>
+
+    <section class="global-stats" aria-label="Global stats">
+      <p>Total Users: <span id="totalUsers">0</span></p>
+      <p>Total Achievements: <span id="totalAchievements">0</span></p>
+      <p>Total Transactions: <span id="totalTxns">0</span></p>
+    </section>
+
+    <section class="share-portfolio">
+      <button id="sharePortfolioBtn" aria-label="Share Portfolio Link">Share Portfolio</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 OnChainPortfolio</p>
+  </footer>
+
+  <!-- Modal for adding achievements -->
+  <div id="modalAddAchievement" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1" hidden>
+    <div class="modal-content">
+      <h2 id="modalTitle">Add New Achievement</h2>
+      <form id="achievementForm">
+        <label for="achTitle">Title</label>
+        <input type="text" id="achTitle" name="title" required aria-required="true" />
+        <label for="achDesc">Description</label>
+        <textarea id="achDesc" name="description" rows="3" required aria-required="true"></textarea>
+        <div class="modal-buttons">
+          <button type="submit">Add</button>
+          <button type="button" id="closeModalBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="notification" role="alert" aria-live="assertive" hidden></div>
+
+  <script type="module" src="js/wallet.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
